@@ -11,7 +11,7 @@ QDRANT_URL = "http://localhost:6333"
 COLLECTION  = "docs"
 
 def create_db():
-    documentos = carregar_documentos()
+    documentos = load_documents()
     chunks     = dividir_chunks(documentos)
     vetorizar(chunks)
 
@@ -43,4 +43,4 @@ def vetorizar(chunks):
     print(f"Acesse: {QDRANT_URL}/dashboard")
 
 if __name__ == "__main__":
-    criar_db()
+    create_db()

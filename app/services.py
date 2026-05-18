@@ -38,7 +38,7 @@ async def buscar_resposta(session_id: str, pergunta: str) -> str | None:
 
     # 3. RAG — busca semântica no Qdrant
     embeddings = OpenAIEmbeddings()
-    db = QdrantVectorStore.from_existing_collection(
+    db = QdrantVectorStore(
         embedding=embeddings,
         url=QDRANT_URL,
         collection_name=COLLECTION,
