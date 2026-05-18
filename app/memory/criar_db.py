@@ -10,12 +10,12 @@ PASTA_DOCS = "base"
 QDRANT_URL = "http://localhost:6333"
 COLLECTION  = "docs"
 
-def criar_db():
+def create_db():
     documentos = carregar_documentos()
     chunks     = dividir_chunks(documentos)
     vetorizar(chunks)
 
-def carregar_documentos():
+def load_documents():
     loader = PyPDFDirectoryLoader(PASTA_DOCS)
     docs   = loader.load()
     print(f"{len(docs)} documento(s) carregado(s)")

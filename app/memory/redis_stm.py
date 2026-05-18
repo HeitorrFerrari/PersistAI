@@ -6,7 +6,7 @@ cliente = redis.Redis(host="localhost", port=6379, decode_responses=True)
 TTL_SEGUNDOS = 60 * 60 * 2
 MAX_MENSAGENS = 10  
 
-def salvar_mensagem(session_id: str, role: str, conteudo: str):
+def save_message(session_id: str, role: str, conteudo: str):
     """
     Salva uma mensagem no histórico da sessão.
     role: 'human' ou 'ai'
@@ -20,7 +20,7 @@ def salvar_mensagem(session_id: str, role: str, conteudo: str):
 
     cliente.expire(chave, TTL_SEGUNDOS)
 
-def buscar_historico(session_id: str) -> list[dict]:
+def search_cook(session_id: str) -> list[dict]:
     """
     Retorna o histórico da sessão como lista de dicts.
     Retorna lista vazia se não houver histórico.
